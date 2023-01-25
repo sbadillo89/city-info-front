@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.temp {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tittle {
+  text-align: center;
+}
