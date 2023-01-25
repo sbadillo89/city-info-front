@@ -5,7 +5,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import "./index.css";
 import { HistoryAttr } from "../../services/history";
 
 type TableHistoryProps = {
@@ -14,36 +13,33 @@ type TableHistoryProps = {
 
 export const TableHistory = ({ history }: TableHistoryProps) => {
   return (
-    <div className="flex-container">
-      <h3>Paises consultados</h3>
-      <TableContainer
-        component={Paper}
-        sx={{
-          maxWidth: 600,
-        }}
-      >
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>País</TableCell>
-              <TableCell align="right">Tipo consulta</TableCell>
+    <TableContainer
+      component={Paper}
+      sx={{
+        maxWidth: 600,
+      }}
+    >
+      <Table aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>País</TableCell>
+            <TableCell align="right">Tipo consulta</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {history.map((row) => (
+            <TableRow
+              key={row.country}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.country}
+              </TableCell>
+              <TableCell align="right">{row.info}</TableCell>
             </TableRow>
-          </TableHead>
-          <TableBody>
-            {history.map((row) => (
-              <TableRow
-                key={row.country}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.country}
-                </TableCell>
-                <TableCell align="right">{row.info}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </div>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };

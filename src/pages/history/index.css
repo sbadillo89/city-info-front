@@ -5,3 +5,11 @@
   align-items: center;
   margin-top: 2rem;
 }
+
+.center {
+  padding-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
